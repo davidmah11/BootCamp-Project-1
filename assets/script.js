@@ -1,13 +1,12 @@
-var CampSerchAPI = "9EN8WYGJV7355PP4SB2VCKTF";
-var ActivityScerchAPI = "KRQZWDV5975JT6JSUC25GAM7";
-var campSites;
+//Works! may need to make a drop down menu for all states?
+var CampSerchAPI = "u5zcb98zk5zgfqvnp47tyc46";
 
-var button = $(".submit").on('click', fetch)
+document.getElementById("submit").addEventListener("click", fetch)
 
-fetch('http://api.amp.active.com/search?{campSites}&api_key={CampSerchAPI}', {
+fetch('http://api.amp.active.com/camping/campgrounds/?pstate=MN&siteType=2001&hookup=3002&sewer=3007&pets=3010&api_key=u5zcb98zk5zgfqvnp47tyc46', {
   method: 'GET',
-  credentials: 'same-origin', 
-  redirect: 'follow', 
+  mode: "no-cors",
+ 
 })
   .then(function (response) {
     return response.json();
@@ -16,4 +15,5 @@ fetch('http://api.amp.active.com/search?{campSites}&api_key={CampSerchAPI}', {
     console.log(data);
   });
 
-  //doesn't work 
+  //google maps API
+  var googleAPIKey = 
