@@ -1,9 +1,23 @@
 //Works! may need to make a drop down menu for all states?
-//CampSerchAPI = "u5zcb98zk5zgfqvnp47tyc46"
+CampSerchAPI = "d99a2fc1-ab7f-4aa9-840f-4ea2e3a166a0"
 
 document.getElementById("submit").addEventListener("click", fetch)
 
-fetch('http://api.amp.active.com/camping/campgrounds/?pstate=MN&siteType=2001&hookup=3002&sewer=3007&pets=3010&api_key=u5zcb98zk5zgfqvnp47tyc46', {
+fetch('https://ridb.recreation.gov/api/v1/campsites?limit=50&offset=0&apikey='+CampSerchAPI, {
+  method: 'GET',
+  headers: {
+    accept: 'application/json'
+  }
+})
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data['RECDATA']);
+})
+
+//need to do something on a page 
+fetch('', {
   method: 'GET',
   mode: "no-cors",
  
