@@ -7,7 +7,8 @@
      <link rel="stylesheet" href="./assets/style.css">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
      <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
-     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+     <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+     <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
      <title>Campground Finder</title>
    
 </head>
@@ -58,14 +59,21 @@
             </ul>
         </div>
     </section>
-    <section>
-        <div id="map"></div>
-    </section>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoid3J4Mzk3aGQiLCJhIjoiY2w5YzRwN3o5NDg5ajN2dDVxb3lvc25uciJ9.NbryZB1WtlKheO6F_Kspww';
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+    projection: 'globe' // display the map as a 3D globe
+});
+map.on('style.load', () => {
+    map.setFog({}); // Set the default atmosphere style
+});
+</script>
 </main>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTcG2fB7T8jhOgj3Y780NCbeatPkvwgU&callback=initMap&v=weekly"
-      defer
-    ></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
