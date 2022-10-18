@@ -2,6 +2,29 @@
 CampSerchAPI = "d99a2fc1-ab7f-4aa9-840f-4ea2e3a166a0"
 MapboxAPI = "pk.eyJ1Ijoid3J4Mzk3aGQiLCJhIjoiY2w5YzRwN3o5NDg5ajN2dDVxb3lvc25uciJ9.NbryZB1WtlKheO6F_Kspww"
 
+navigator.geolocation.getCurrentPosition(
+    function (position) {
+       userLocation(position.coords.latitude, position.coords.longitude)
+    },
+    function errorCallback(error) {
+       console.log(error)
+    }
+  );
+  function userLocation(lat, lng) {
+    var myLatLng = {
+       lat,
+       lng
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+       zoom: 10,
+       center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+       position: myLatLng,
+       map: map,
+    });
+  }
+  
 
 document.getElementById("submit").addEventListener("click", findCampground)
 
@@ -25,9 +48,9 @@ function findCampground(event){
 })
 }
 
-function displayCampground(data) {
+/*function displayCampground(data) {
     const campground = data.
-}
+}*/
 // fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTcG2fB7T8jhOgj3Y780NCbeatPkvwgUus&callback=initMap", {
 //     method: 'GET',
 //     mode: "no-cors"
