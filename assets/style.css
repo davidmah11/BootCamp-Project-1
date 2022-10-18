@@ -70,10 +70,20 @@ form {
      color: rgb(255, 255, 255);
 
     }
+<<<<<<< HEAD
     #map { 
         position: absolute; 
         top: 0; 
         bottom: 0; 
         width: 100%; 
+=======
+
+ #map { 
+    display: flex;
+        position: absolute;  
+        bottom: 20%; 
+        left: 50%;
+        width: auto;
+>>>>>>> b615c4229ec5f2102d8348a7924e7e009f3e0375
     }
       
