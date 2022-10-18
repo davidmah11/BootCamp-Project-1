@@ -20,4 +20,8 @@ function findCampground(event){
   })
   .then(function (data) {
     console.log(data['RECDATA']);
-})
+})}
+
+function displayCampsiteData(data) {
+  const Campsite = data;
+}
