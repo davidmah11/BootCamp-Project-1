@@ -21,5 +21,35 @@ function findCampground(event){
   })
   .then(function (data) {
     console.log(data['RECDATA']);
+    initMap(data['RECDATA'])
 })
 }
+
+// fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTcG2fB7T8jhOgj3Y780NCbeatPkvwgUus&callback=initMap", {
+//     method: 'GET',
+//     mode: "no-cors"
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   });
+  //Think this is for google map with marker for location?
+  // Initialize and add the map
+  function initMap(data) {
+    // The location of Uluru
+    console.log(data)
+    const uluru = { lat: 25, lng: 131};
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    for (let i = 0; i < data.length; i++) {
+      var marker = new google.maps.Marker({
+      position: { lat: data[i]['CampsiteLatitude'], lng: data[i]['CampsiteLongitude']},
+      map: map,
+     });
+    }
+    }
+  
+//   window.initMap = initMap;
