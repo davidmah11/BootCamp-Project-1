@@ -72,15 +72,15 @@ function findCampground(event){
       zoom: 10,
       center: [],
       map: map,
-
-            //this was supposed to center the map to the new markers, doesnt work.
-      // centralize() {
-      //   const bounds = new google.maps.LatLngBounds();
-      //   this.markerList.forEach((marker) => {
-      //       bounds.extend(new google.maps.LatLng(marker.lat, marker.lng))
-      //   })
-      //   this.map.fitBounds(bounds)
-    // }});
-    }}
+                  //supposed to center map to new marker,it does not 
+      centralize() {
+        const bounds = new google.maps.LatLngBounds();
+        this.markerList.forEach((marker) => {
+            bounds.extend(new google.maps.LatLng(marker.lat, marker.lng))
+        })
+        this.map.fitBounds(bounds)
+    }});
+    }
+}
   
   // window.initMap = initMap;
