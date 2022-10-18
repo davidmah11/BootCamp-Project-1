@@ -2,13 +2,13 @@
 CampSerchAPI = "d99a2fc1-ab7f-4aa9-840f-4ea2e3a166a0"
 MapboxAPI = "pk.eyJ1Ijoid3J4Mzk3aGQiLCJhIjoiY2w5YzRwN3o5NDg5ajN2dDVxb3lvc25uciJ9.NbryZB1WtlKheO6F_Kspww"
 
+
 document.getElementById("submit").addEventListener("click", findCampground)
 
-function findCampground(event){
-  console.log("yeet") 
+function findCampground(event){ 
   event.preventDefault()
-
-  fetch('https://ridb.recreation.gov/api/v1/campsites?query=&limit=10&offset=0&apikey='+CampSerchAPI, {
+  var UserText = document.getElementById("textBox").value
+  fetch('https://ridb.recreation.gov/api/v1/campsites?query='+UserText+'&limit=10&offset=0&apikey='+CampSerchAPI, {
 // fetch('https://ridb.recreation.gov/api/v1/facilityaddresses?query=&limit=10&offset=0&apikey='+CampSerchAPI, {
   method: 'GET',
   headers: {
@@ -16,12 +16,10 @@ function findCampground(event){
   }
 })
   .then(function (response) {
+    console.log(response)
     return response.json();
   })
   .then(function (data) {
     console.log(data['RECDATA']);
-})}
-
-function displayCampsiteData(data) {
-  const Campsite = data;
+})
 }
