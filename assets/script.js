@@ -1,6 +1,29 @@
 //Works! may need to make a drop down menu for all states?
 CampSerchAPI = "d99a2fc1-ab7f-4aa9-840f-4ea2e3a166a0"
 
+navigator.geolocation.getCurrentPosition(
+    function (position) {
+       userLocation(position.coords.latitude, position.coords.longitude)
+    },
+    function errorCallback(error) {
+       console.log(error)
+    }
+  );
+  function userLocation(lat, lng) {
+    var myLatLng = {
+       lat,
+       lng
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+       zoom: 10,
+       center: myLatLng
+    });
+    var marker = new google.maps.Marker({
+       position: myLatLng,
+       map: map,
+    });
+  }
+  
 
 document.getElementById("submit").addEventListener("click", findCampground)
 
@@ -21,6 +44,14 @@ function findCampground(event){
   .then(function (data) {
     console.log(data['RECDATA']);
     initMap(data['RECDATA'])
+    
+    localStorage.setItem("UserInput", JSON.stringify(UserText));
+    saveText();
+    
+    function saveText() {
+      var lastSerch = JSON.parse(localStorage.getItem("UgserInput"));
+      console.log("hello")
+    }
 })
 }
 
