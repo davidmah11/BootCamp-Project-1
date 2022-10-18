@@ -10,6 +10,7 @@ navigator.geolocation.getCurrentPosition(
      console.log(error)
   }
 );
+
 function userLocation(lat, lng) {
   var myLatLng = {
      lat,
@@ -59,7 +60,7 @@ function findCampground(event){
   function initMap(data) {
     
     console.log(data)
-    const uluru = { lat: 25, lng: 131};
+    const uluru = {lat: 46.392410, lng: -94.636230};
    
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
