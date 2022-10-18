@@ -1,6 +1,5 @@
 //Works! may need to make a drop down menu for all states?
 CampSerchAPI = "d99a2fc1-ab7f-4aa9-840f-4ea2e3a166a0"
-MapboxAPI = "pk.eyJ1Ijoid3J4Mzk3aGQiLCJhIjoiY2w5YzRwN3o5NDg5ajN2dDVxb3lvc25uciJ9.NbryZB1WtlKheO6F_Kspww"
 
 navigator.geolocation.getCurrentPosition(
     function (position) {
@@ -45,25 +44,21 @@ function findCampground(event){
   .then(function (data) {
     console.log(data['RECDATA']);
     initMap(data['RECDATA'])
+    
+    localStorage.setItem("UserInput", JSON.stringify(UserText));
+    saveText();
+    
+    function saveText() {
+      var lastSerch = JSON.parse(localStorage.getItem("UgserInput"));
+      console.log("hello")
+    }
 })
 }
 
-/*function displayCampground(data) {
-    const campground = data.
-}*/
-// fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTcG2fB7T8jhOgj3Y780NCbeatPkvwgUus&callback=initMap", {
-//     method: 'GET',
-//     mode: "no-cors"
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
-  //Think this is for google map with marker for location?
-  // Initialize and add the map
   function initMap(data) {
     // The location of Uluru
     console.log(data)
-    const uluru = { lat: 25, lng: 131};
+    const uluru = { lat: 46.392410, lng: -94.636230};
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
@@ -78,4 +73,4 @@ function findCampground(event){
     }
     }
   
-//   window.initMap = initMap;
+   //window.initMap = initMap;
