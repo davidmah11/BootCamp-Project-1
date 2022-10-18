@@ -25,6 +25,9 @@ function findCampground(event){
 })
 }
 
+function displayCampground(data) {
+    const campground = data.
+}
 // fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyCUTcG2fB7T8jhOgj3Y780NCbeatPkvwgUus&callback=initMap", {
 //     method: 'GET',
 //     mode: "no-cors"
