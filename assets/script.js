@@ -4,7 +4,7 @@ MapboxAPI = "pk.eyJ1Ijoid3J4Mzk3aGQiLCJhIjoiY2w5YzRwN3o5NDg5ajN2dDVxb3lvc25uciJ9
 
 document.getElementById("submit").addEventListener("click", fetch)
 
-fetch('https://ridb.recreation.gov/api/v1/facilityaddresses?query=&limit=10&offset=0&apikey='+CampSerchAPI, {
+fetch('https://ridb.recreation.gov/api/v1/campsite?query=&limit=10&offset=0&apikey='+CampSerchAPI, {
   method: 'GET',
   headers: {
     accept: 'application/json'
